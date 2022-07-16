@@ -1,0 +1,4 @@
+Title: {exercise-id}
+Author: {username}
+DisplayMode: {displaymode}
+Type: Shiny
