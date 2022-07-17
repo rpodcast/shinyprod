@@ -1,0 +1,4 @@
+Name: Deploy Shiny App
+Description: Deploys your Shiny app created for a workshop exercise
+Binding: shinyprod_deploy
+Interactive: true
