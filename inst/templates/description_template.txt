@@ -1,4 +1,4 @@
-Title: {exercise-id}
-Author: {username}
-DisplayMode: {displaymode}
+Title: {{exercise_id}} App by {{user_name}}
+Author: {{user_name}}
+DisplayMode: {{displaymode}}
 Type: Shiny
