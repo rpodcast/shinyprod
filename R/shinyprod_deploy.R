@@ -72,6 +72,17 @@ shinyprod_deploy <- function(tag = "shinyprod", displaymode = "Showcase") {
 
   cat_rule("Initial deployment completed")
 
+  # obtain guid of deployed app
+  app_guid <- content$get_content()$guid
+
+  # create normal and dashboard (admin) URLs of app
+  # wait two seconds for URL to register
+  Sys.sleep(2)
+
+  server_url <- Sys.getenv("CONNECT_SERVER")
+  app_viewer_url <- glue::glue("{server_url}/content/{app_guid}/")
+  app_dashboard_url <- glue::glue("{server_url}/connect/#/apps/{app_guid}/access")
+
   # obtain the tag_id in the rstudio connect server based on tag string
   tag_id <- get_tag_data(client) %>%
     dplyr::filter(name == tag) %>%
@@ -80,9 +91,12 @@ shinyprod_deploy <- function(tag = "shinyprod", displaymode = "Showcase") {
   # set tag
   set_content_tags(content, tag_id = tag_id)
 
-  # obtain URL of content
-  app_url <- content$get_content()$url
-
-  cli_alert_success("Application deployed! Visit {.url {app_url}}.")
-  invisible(app_url)
+  cli_alert_success("Application deployed! Visit the app at the following URLs:")
+  cli_ul(
+    c(
+      "Admin: {.url {app_dashboard_url}}",
+      "Viewer: {.url {app_viewer_url}}"
+    )
+  )
+  invisible(app_dashboard_url)
 }
