@@ -1,7 +1,7 @@
 Package: shinyprod
 Type: Package
 Title: Companion Package for Building Production-Quality Shiny Applications
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person(given = "Eric",
            family = "Nantz",

@@ -11,6 +11,11 @@
 shinyprod_deploy <- function(tag = "shinyprod", displaymode = "Showcase") {
   # obtain user ID of connect account
   user_id <- accounts()$name
+
+  if (is.null(user_id)) {
+    cli_abort("Unable to detect account integration with RStudio Connect. Please follow workshop instructions to set up your RStudio Connect account integration within your RStudio environment.")
+  }
+
   cli_alert_info("User ID on RStudio Connect: {user_id}")
 
   # check that app.R is active in source pane of RStudio
