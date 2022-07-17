@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-`{shinyprod}` is a companion package for the **Building Production-Quality Shiny Applications** workshop at rstudio::conf(2022). More information on the workshop can be found at [shinyprod.com](https://shinyprod.com). The goal of the package is to let workshop attendees easily deploy Shiny applications built during the workshop exercises and other coding sessions using one function called `shinyprod_deploy()`.
+`{shinyprod}` is a companion package for the **Building Production-Quality Shiny Applications** workshop at rstudio::conf(2022). More information on the workshop can be found at [shinyprod.com](https://shinyprod.com). The goal of the package is to let workshop attendees easily deploy Shiny applications built during the workshop exercises and other coding sessions using one function called `shinyprod_deploy()`. This function can also be executed by selecting the **Deploy Shiny App** add-in from the RStudio Addins menu.
 
 ## Important Note
 
