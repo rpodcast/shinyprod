@@ -1,4 +1,7 @@
 Title: {{exercise_id}} App by {{user_name}}
 Author: {{user_name}}
+AuthorUrl: https://shinyprod.com
+License: MIT
 DisplayMode: {{displaymode}}
+Tags: shinyprod
 Type: Shiny

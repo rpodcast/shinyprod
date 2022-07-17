@@ -4,10 +4,14 @@
 \alias{shinyprod_deploy}
 \title{Deploy workshop app}
 \usage{
-shinyprod_deploy(tag = "shinyprod")
+shinyprod_deploy(tag = "shinyprod", displaymode = "Showcase")
 }
 \arguments{
 \item{tag}{string for tag of the content. Default is "shinyprod"}
+
+\item{displaymode}{type of display to use in app deployment. Default
+is "Showcase", meaning the application code will be displayed
+alongside the app. To disable this mode, set to "Normal" instead.}
 }
 \description{
 Deploy workshop app

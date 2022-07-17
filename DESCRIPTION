@@ -1,19 +1,23 @@
 Package: shinyprod
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Companion Package for Building Production-Quality Shiny Applications
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    person(given = "Eric",
+           family = "Nantz",
+           role = c("aut", "cre"),
+           email = "theRcast@gmail.com")
+Description: Companion Package for Building Production-Quality Shiny Applications.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
     cli,
     connectapi (>= 0.1.0.9033),
     dplyr,
+    fs,
     glue,
+    magrittr,
     rsconnect,
     rstudioapi,
     usethis,

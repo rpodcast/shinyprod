@@ -1,11 +1,14 @@
 #' Deploy workshop app
 #' @param tag string for tag of the content. Default is "shinyprod"
-#'
+#' @param displaymode type of display to use in app deployment. Default
+#'   is "Showcase", meaning the application code will be displayed
+#'   alongside the app. To disable this mode, set to "Normal" instead.
 #' @import cli
 #' @import connectapi
 #' @importFrom rstudioapi getSourceEditorContext
 #' @importFrom rsconnect writeManifest accounts
-shinyprod_deploy <- function(tag = "shinyprod") {
+#' @export
+shinyprod_deploy <- function(tag = "shinyprod", displaymode = "Showcase") {
   # obtain user ID of connect account
   user_id <- accounts()$name
   cli_alert_info("User ID on RStudio Connect: {user_id}")
@@ -36,6 +39,14 @@ shinyprod_deploy <- function(tag = "shinyprod") {
 
   cli_alert_info("user name: {user_name}")
 
+
+  desc_path <- process_description(
+    exercise_id = app_dir,
+    user_name = user_name,
+    app_path = app_path,
+    displaymode = displaymode
+  )
+
   # use rsconnect to write manifest file
   if (!fs::file_exists(fs::path(app_path, "manifest.json"))) {
     writeManifest(appDir = app_path)
@@ -52,6 +63,12 @@ shinyprod_deploy <- function(tag = "shinyprod") {
       access_type = "logged_in"
     ) %>%
     poll_task()
+
+  # remove description file
+  fs::file_delete(desc_path)
+
+  # remove manifest
+  fs::file_delete(fs::path(app_path, "manifest.json"))
 
   cat_rule("Initial deployment completed")
 
